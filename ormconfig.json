@@ -1,10 +1,10 @@
 {
   "type": "postgres",
   "port": 5432,
-  "host": "localhost", 
-  "username": "serasa",
-  "password": "Ser@sa01",
-  "database": "serasaapp", 
+  "host": "localhost",
+  "username": "Roberto",
+  "password": "Robert0",
+  "database": "parafuzoapp",
   "migrations": ["./src/database/migrations/*.ts"],
   "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {

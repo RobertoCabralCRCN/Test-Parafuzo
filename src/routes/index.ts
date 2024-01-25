@@ -1,11 +1,9 @@
 import { Router } from "express";
 
-import { producersRoutes } from "./producer.routes";
-
+import { parkingsRoutes } from "./parking.routes";
 
 const router = Router();
 
-router.use("/producers", producersRoutes);
-
+router.use("/parkings", parkingsRoutes);
 
 export { router };

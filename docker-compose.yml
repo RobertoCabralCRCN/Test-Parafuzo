@@ -8,25 +8,25 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=serasa
-      - POSTGRES_PASSWORD=Ser@sa01
-      - POSTGRES_DB=serasaapp
+      - POSTGRES_USER=Roberto
+      - POSTGRES_PASSWORD=Robert0
+      - POSTGRES_DB=parafuzoapp
     volumes:
       - pgdata:/data/postgres
 
-  app:
-    build: .
-    container_name: serasaapp
-    restart: always
-    ports:
-      - 3434:3434
-      - 9229:9229
-    volumes:
-      - .:/usr/app
-    links:
-      - database
-    depends_on:
-      - database
+  # app:
+  #   build: .
+  #   container_name: parafuzoapp
+  #   restart: always
+  #   ports:
+  #     - 3001:3001
+  #     - 9229:9229
+  #   volumes:
+  #     - .:/usr/app
+  #   links:
+  #     - database
+  #   depends_on:
+  #     - database
 
 volumes:
   pgdata:

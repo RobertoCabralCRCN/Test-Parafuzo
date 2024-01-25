@@ -35,18 +35,14 @@ class FakeParkingRepository implements IParkingRepository {
       plate: data.plate,
       paid: data.paid,
       left: data.left,
-      time: data.time,
     });
 
     return Promise.resolve(updatedPlate);
   }
 
-  async delete(plate: string): Promise<void> {
-    const deletedPlate = this.parkings.filter((item) => item.plate !== plate);
-
-    this.parkings = deletedPlate;
-
-    return Promise.resolve();
+  async findById(id: number): Promise<Parking> {
+    const findedId = await this.parkings.find((item) => item.id === id);
+    return Promise.resolve(findedId);
   }
 }
 

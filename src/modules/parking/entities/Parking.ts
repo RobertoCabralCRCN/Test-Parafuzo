@@ -19,9 +19,6 @@ class Parking {
 
   @Column()
   end_time: Date;
-
-  @Column()
-  time: Date;
 }
 
 export { Parking };

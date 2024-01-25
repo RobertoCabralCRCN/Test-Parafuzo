@@ -3,6 +3,7 @@ import { IParkingRepository } from "../../repositories/interfaces/ParkingReposit
 import { ICreateParkingRequestDTO } from "./dtos/ICreateParkingRequestDTO";
 import { ICreateParkingResponseDTO } from "./dtos/ICreateParkingResponseDTO";
 import { AppError } from "../../../../errors/AppError";
+import moment from "moment";
 
 @injectable()
 class CreateParkingUseCase {
@@ -17,18 +18,19 @@ class CreateParkingUseCase {
     const findByPlate = await this.parkingRepository.findByPlate(input.plate);
 
     if (findByPlate) {
-      throw new AppError("Placa já cadastrada!", 404);
+      throw new AppError("Placa já cadastrada!", 401);
     }
 
     const createdParking = await this.parkingRepository.create({
-      plate: input.plate,
+      plate: input.plate.toUpperCase(),
       paid: false,
       left: false,
-      start_time: new Date(),
-      end_time: new Date(),
-      time: new Date(),
+      start_time: moment().toDate(),
+      end_time: null,
     });
 
     return createdParking;
   }
 }
+
+export { CreateParkingUseCase };

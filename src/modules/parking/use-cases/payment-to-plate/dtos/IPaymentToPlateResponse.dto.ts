@@ -1,8 +1,9 @@
-export interface ICreateParkingResponseDTO {
+export interface IPaymentToPlateResponseDTO {
   id: number;
   plate: string;
   paid: boolean;
   left: boolean;
   start_time: Date;
   end_time: Date;
+  time: Date;
 }

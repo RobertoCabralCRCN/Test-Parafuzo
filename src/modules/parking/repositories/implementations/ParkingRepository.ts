@@ -20,12 +20,17 @@ class ParkingRepository implements IParkingRepository {
       left: data.left,
       start_time: data.start_time,
       end_time: data.end_time,
-      time: data.time,
     });
 
     await this.repository.save(newParking);
 
     return newParking;
+  }
+
+  async findById(id: number): Promise<Parking> {
+    const findedId = await this.repository.findOne(id);
+
+    return findedId;
   }
 
   async findByPlate(plate: string): Promise<Parking> {
@@ -38,10 +43,6 @@ class ParkingRepository implements IParkingRepository {
 
   async update(data: IUpdatePark): Promise<Parking> {
     return this.repository.save(data);
-  }
-
-  async delete(plate: string): Promise<void> {
-    await this.repository.delete(plate);
   }
 }
 
