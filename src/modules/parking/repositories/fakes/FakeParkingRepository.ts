@@ -44,6 +44,9 @@ class FakeParkingRepository implements IParkingRepository {
     const findedId = await this.parkings.find((item) => item.id === id);
     return Promise.resolve(findedId);
   }
+  async checkPlateToLeft(plate: string): Promise<Parking[]> {
+    return Promise.resolve(this.parkings);
+  }
 }
 
 export { FakeParkingRepository };

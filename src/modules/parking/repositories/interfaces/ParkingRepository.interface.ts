@@ -22,6 +22,7 @@ interface IParkingRepository {
   findById(id: number): Promise<Parking>;
   findByPlate(plate: string): Promise<Parking>;
   update(data: IUpdatePark): Promise<Parking>;
+  checkPlateToLeft(plate: string): Promise<Parking[]>;
 }
 
 export { ICreatePark, IParkingRepository, IUpdatePark };

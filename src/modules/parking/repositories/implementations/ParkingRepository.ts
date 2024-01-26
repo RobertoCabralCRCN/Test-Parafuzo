@@ -44,6 +44,17 @@ class ParkingRepository implements IParkingRepository {
   async update(data: IUpdatePark): Promise<Parking> {
     return this.repository.save(data);
   }
+
+  async checkPlateToLeft(plate: string): Promise<Parking[]> {
+    const verifyToLeft = await this.repository.find({
+      where: {
+        plate,
+        left: false,
+      },
+    });
+
+    return verifyToLeft;
+  }
 }
 
 export { ParkingRepository };

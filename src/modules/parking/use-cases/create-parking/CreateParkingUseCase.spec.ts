@@ -36,4 +36,18 @@ describe("Create Parking", () => {
       })
     ).rejects.toBeInstanceOf(AppError);
   });
+  it("Should be not able to create a parking: (verification plate format)", async () => {
+    const newObj = await fakeParkingRepository.create({
+      plate: "aaa-12",
+      paid: false,
+      left: false,
+      start_time: new Date(),
+      end_time: null,
+    });
+    await expect(
+      createParkingUseCase.execute({
+        ...newObj,
+      })
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });

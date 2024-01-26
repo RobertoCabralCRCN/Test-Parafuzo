@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "6e91392d-3c43-4c79-a975-acec28a56cb8",
+		"name": "Test-Parafuzo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25774681"
+	},
+	"item": [
+		{
+			"name": "Create Parking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plate\": \"dni-4665\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/parkings",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"parkings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Plate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/parkings/BLC-1556",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"parkings",
+						"BLC-1556"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment To Plate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/parkings/2/pay",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"parkings",
+						"2",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Output To Plate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/parkings/2/out",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"parkings",
+						"2",
+						"out"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

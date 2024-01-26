@@ -12,17 +12,30 @@ class CreateParkingUseCase {
     private parkingRepository: IParkingRepository
   ) {}
 
+  private validatePlateFormat(plate: string): boolean {
+    const regexPlacaCarro = /^[A-Z]{3}-\d{4}$/;
+    return regexPlacaCarro.test(plate);
+  }
+
   async execute(
     input: ICreateParkingRequestDTO
   ): Promise<ICreateParkingResponseDTO> {
-    const findByPlate = await this.parkingRepository.findByPlate(input.plate);
+    const plate = input.plate.trim().toUpperCase();
 
-    if (findByPlate) {
-      throw new AppError("Placa já cadastrada!", 401);
+    if (!this.validatePlateFormat(plate)) {
+      throw new AppError(
+        "Formato de placa inválido! O formato correto é ABC-1234.",
+        400
+      );
+    }
+
+    const findByPlate = await this.parkingRepository.checkPlateToLeft(plate);
+    if (findByPlate.length > 0) {
+      throw new AppError("Veículo ainda permanece no Estacionamento!");
     }
 
     const createdParking = await this.parkingRepository.create({
-      plate: input.plate.toUpperCase(),
+      plate,
       paid: false,
       left: false,
       start_time: moment().toDate(),

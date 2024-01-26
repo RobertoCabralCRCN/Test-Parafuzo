@@ -3,7 +3,7 @@ version: "3.9"
 services:
   database:
     image: postgres
-    container_name: database_serasaapp
+    container_name: database_parafuzzo
     restart: always
     ports:
       - 5432:5432
@@ -19,7 +19,7 @@ services:
   #   container_name: parafuzoapp
   #   restart: always
   #   ports:
-  #     - 3001:3001
+  #     - 3535:3535
   #     - 9229:9229
   #   volumes:
   #     - .:/usr/app
