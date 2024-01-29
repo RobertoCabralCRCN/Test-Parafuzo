@@ -13,8 +13,11 @@ class CreateParkingUseCase {
   ) {}
 
   private validatePlateFormat(plate: string): boolean {
-    const regexPlacaCarro = /^[A-Z]{3}-\d{4}$/;
-    return regexPlacaCarro.test(plate);
+    const regexPlacaAtual = /^[A-Z]{3}\d[A-Z]\d{2}$/;
+
+    const regexPlacaAntiga = /^[A-Z]{3}-\d{4}$/;
+
+    return regexPlacaAtual.test(plate) || regexPlacaAntiga.test(plate);
   }
 
   async execute(
