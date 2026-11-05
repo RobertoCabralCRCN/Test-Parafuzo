@@ -3,7 +3,7 @@
   "port": 5432,
   "host": "localhost",
   "username": "Roberto",
-  "password": "Robert0",
+  "password": "PassW0rd",
   "database": "parafuzoapp",
   "migrations": ["./src/database/migrations/*.ts"],
   "entities": ["./src/modules/**/entities/*.ts"],
