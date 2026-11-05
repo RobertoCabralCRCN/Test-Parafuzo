@@ -9,7 +9,7 @@ services:
       - 5432:5432
     environment:
       - POSTGRES_USER=Roberto
-      - POSTGRES_PASSWORD=Robert0
+      - POSTGRES_PASSWORD=PassW0rd
       - POSTGRES_DB=parafuzoapp
     volumes:
       - pgdata:/data/postgres
